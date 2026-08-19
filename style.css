@@ -1760,7 +1760,7 @@ em {
 
     background: var(--ivory);
 
-    color: var(--black);
+    color: var(--white);
 
 }
 
@@ -3179,3 +3179,20 @@ p {
 
 
 
+/* =====================================================
+   ORIGINE — FULL WEBSITE BACKGROUND
+   ===================================================== */
+
+body {
+    background:
+        linear-gradient(
+            rgba(5, 5, 5, 0.78),
+            rgba(5, 5, 5, 0.78)
+        ),
+        url("https://images.pexels.com/photos/8079350/pexels-photo-8079350.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
