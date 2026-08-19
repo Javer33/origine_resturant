@@ -3143,10 +3143,22 @@ textarea:focus {
     }
 
 }
+h2 {
+    font-size: clamp(2.4rem, 4.5vw, 4.6rem);
+    letter-spacing: -.035em;
+}
+
+h3 {
+    font-size: 1.65rem;
+}
+
+p {
+    color: var(--muted);
+    font-size: 14px;
+}
 #ownerMenuItems {
     display: contents;
 }
-
 
 
 
