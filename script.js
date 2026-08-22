@@ -1062,3 +1062,187 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+/* =====================================================
+   ORIGINE AUTOMATIC AMBIENT OUD MUSIC
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const audio =
+        document.getElementById("origineAudio");
+
+    const button =
+        document.getElementById("origineSoundToggle");
+
+    const icon =
+        button?.querySelector(".sound-icon");
+
+
+    /* Safety check */
+
+    if (!audio || !button || !icon) {
+        return;
+    }
+
+
+    /* =================================================
+       VOLUME
+    ================================================= */
+
+    audio.volume = 0.14;
+
+
+    /* =================================================
+       UPDATE BUTTON
+    ================================================= */
+
+    function updateButton(isPlaying) {
+
+        if (isPlaying) {
+
+            icon.textContent = "🔊";
+
+            button.setAttribute(
+                "aria-label",
+                "Turn ambient music off"
+            );
+
+            button.setAttribute(
+                "title",
+                "Turn ambient music off"
+            );
+
+            button.classList.add(
+                "sound-playing"
+            );
+
+        } else {
+
+            icon.textContent = "🔇";
+
+            button.setAttribute(
+                "aria-label",
+                "Turn ambient music on"
+            );
+
+            button.setAttribute(
+                "title",
+                "Turn ambient music on"
+            );
+
+            button.classList.remove(
+                "sound-playing"
+            );
+        }
+    }
+
+
+    /* =================================================
+       START MUSIC
+    ================================================= */
+
+    function startMusic() {
+
+        audio.volume = 0.15;
+
+        const promise =
+            audio.play();
+
+        if (promise !== undefined) {
+
+            promise
+                .then(function () {
+
+                    updateButton(true);
+
+                })
+                .catch(function () {
+
+                    /*
+                       Browser blocked autoplay.
+                       Music will start after first interaction.
+                    */
+
+                    updateButton(false);
+
+                });
+        }
+    }
+
+
+    /* =================================================
+       TRY AUTOPLAY IMMEDIATELY
+    ================================================= */
+
+    startMusic();
+
+
+    /* =================================================
+       FALLBACK FOR BROWSER AUTOPLAY BLOCK
+    ================================================= */
+
+    function startAfterInteraction() {
+
+        if (audio.paused) {
+            startMusic();
+        }
+
+        document.removeEventListener(
+            "click",
+            startAfterInteraction
+        );
+
+        document.removeEventListener(
+            "touchstart",
+            startAfterInteraction
+        );
+
+        document.removeEventListener(
+            "keydown",
+            startAfterInteraction
+        );
+    }
+
+
+    document.addEventListener(
+        "click",
+        startAfterInteraction
+    );
+
+    document.addEventListener(
+        "touchstart",
+        startAfterInteraction
+    );
+
+    document.addEventListener(
+        "keydown",
+        startAfterInteraction
+    );
+
+
+    /* =================================================
+       SOUND BUTTON
+    ================================================= */
+
+    button.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+
+            if (audio.paused) {
+
+                startMusic();
+
+            } else {
+
+                audio.pause();
+
+                updateButton(false);
+            }
+
+        }
+    );
+
+});

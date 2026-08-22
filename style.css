@@ -71,7 +71,7 @@ body {
 
     font-family: var(--sans);
 
-    line-height: 1.7;
+    line-height: 1.9;
 
 }
 
@@ -813,6 +813,169 @@ em {
 
     transition: .45s ease;
 
+}
+/* ================= PAKISTANI HERITAGE DISHES ================= */
+
+.heritage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+
+/* CARD */
+
+.heritage-card {
+    background: #11110f;
+
+    border: 1px solid rgba(215, 189, 141, .2);
+
+    transition: .45s ease;
+
+    overflow: hidden;
+}
+
+
+.heritage-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(215, 189, 141, .55);
+
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .4);
+}
+
+
+/* IMAGE */
+
+.heritage-image {
+    position: relative;
+
+    aspect-ratio: 1 / 1.02;
+
+    overflow: hidden;
+}
+
+
+.heritage-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: .7s ease;
+}
+
+
+.heritage-card:hover .heritage-image img {
+    transform: scale(1.06);
+}
+
+
+/* CARD BODY */
+
+.heritage-body {
+    padding: 25px;
+}
+
+
+/* META TEXT */
+
+.light-meta {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+
+/* DISH NAME */
+
+.heritage-body h3 {
+    font-size: 27px;
+
+    margin-bottom: 15px;
+
+    color: #fff;
+}
+
+
+/* DESCRIPTION */
+
+.heritage-body p {
+    min-height: 52px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+
+/* DETAILS + PRICE */
+
+.heritage-details {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-top: 18px;
+
+    margin-top: 18px;
+
+    border-top: 1px solid rgba(215, 189, 141, .15);
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    letter-spacing: .04em;
+}
+
+
+.heritage-details span:last-child {
+    color: var(--gold-light);
+
+    font-family: var(--serif);
+
+    font-size: 19px;
+
+    white-space: nowrap;
+}
+
+
+/* DISCOVER LINK */
+
+.heritage-link {
+    display: inline-block;
+
+    margin-top: 22px;
+
+    color: var(--gold-light);
+
+    transition: .3s ease;
+}
+
+
+.heritage-link:hover {
+    transform: translateX(5px);
+
+    color: #fff;
 }
 
 
@@ -3195,4 +3358,466 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+/* =====================================================
+   WHY ORIGINE · QUOTATION SECTION
+===================================================== */
+
+.origine-quote-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.origine-quote {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 100px 70px;
+    text-align: center;
+    border: 1px solid rgba(201, 164, 100, 0.25);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.large-quote-mark {
+    display: block;
+    margin-bottom: -35px;
+    font-family: Georgia, serif;
+    font-size: 150px;
+    line-height: 1;
+    opacity: 0.35;
+}
+
+.origine-quote blockquote {
+    max-width: 780px;
+    margin: 0 auto;
+    font-family: Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 4.8rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+}
+
+.origine-quote blockquote em {
+    display: block;
+    margin-top: 10px;
+}
+
+.quote-author {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.65;
+}
+
+.quote-divider {
+    width: 70px;
+    height: 1px;
+    margin: 48px auto;
+    background: currentColor;
+    opacity: 0.25;
+}
+
+.origine-meaning {
+    max-width: 680px;
+    margin: 0 auto 20px;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    opacity: 0.8;
+}
+
+.origine-meaning strong {
+    font-weight: 600;
+}
+
+.origine-quote .text-link {
+    display: inline-block;
+    margin-top: 22px;
+}
+
+/* =====================================================
+   UNIFIED HORIZONTAL FOOD CAROUSEL
+   SIGNATURE DISHES + PAKISTANI HERITAGE
+===================================================== */
+
+
+/* =====================================================
+   MAIN SCROLL CONTAINERS
+===================================================== */
+
+.dish-grid,
+.heritage-grid {
+    display: flex !important;
+
+    grid-template-columns: none !important;
+
+    gap: 24px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px 5px 30px;
+
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--gold)
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* =====================================================
+   DESKTOP
+   SHOW EXACTLY 3 CARDS
+===================================================== */
+
+.dish-grid .dish-card,
+.heritage-grid .heritage-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+
+    min-width: 0;
+
+    scroll-snap-align: start;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   KEEP CARD CONTENT ORGANIZED
+===================================================== */
+
+.dish-grid .dish-body,
+.heritage-grid .heritage-body {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
+
+/* Push Heritage details toward bottom */
+
+.heritage-grid .heritage-details {
+    margin-top: auto;
+}
+
+
+/* =====================================================
+   SCROLLBAR — CHROME / EDGE / SAFARI
+===================================================== */
+
+.dish-grid::-webkit-scrollbar,
+.heritage-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+
+.dish-grid::-webkit-scrollbar-track,
+.heritage-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 20px;
+}
+
+
+.dish-grid::-webkit-scrollbar-thumb,
+.heritage-grid::-webkit-scrollbar-thumb {
+    background: var(--gold);
+
+    border-radius: 20px;
+}
+
+
+.dish-grid::-webkit-scrollbar-thumb:hover,
+.heritage-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+}
+
+
+/* =====================================================
+   TABLET
+   SHOW 2 CARDS
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .dish-grid,
+    .heritage-grid {
+        gap: 24px;
+    }
+
+
+    .dish-grid .dish-card,
+    .heritage-grid .heritage-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   SHOW ONE LARGE CARD
+   NEXT CARD PEEKS FROM THE SIDE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .dish-grid,
+    .heritage-grid {
+        gap: 18px;
+
+        padding: 8px 2px 25px;
+    }
+
+
+    .dish-grid .dish-card,
+    .heritage-grid .heritage-card {
+        flex: 0 0 85%;
+    }
+
+}
+/* =========================================
+   HERITAGE QUOTE SLIDER
+========================================= */
+
+.heritage-quote {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-slider {
+    position: relative;
+    width: 100%;
+    min-height: 180px;
+}
+
+.quote-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateX(100%);
+    transition:
+        transform 1s ease-in-out,
+        opacity 1s ease-in-out;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Active quote */
+.quote-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Quote leaving towards left */
+.quote-slide.exit {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.quote-mark {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.quote-slide p {
+    max-width: 750px;
+    margin: 0;
+
+    font-size: 1.3rem;
+    line-height: 1.8;
+    font-style: italic;
+}
+/* =====================================================
+   ORIGINE AMBIENT SOUND BUTTON
+===================================================== */
+
+.origine-sound-toggle {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(215, 189, 141, 0.45);
+
+    background:
+        rgba(17, 17, 15, 0.88);
+
+    color: var(--gold-light);
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* ICON */
+
+.origine-sound-toggle .sound-icon {
+
+    font-size: 17px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* HOVER */
+
+.origine-sound-toggle:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        var(--gold-light);
+
+    background:
+        rgba(25, 24, 20, 0.95);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+/* CLICK */
+
+.origine-sound-toggle:active {
+
+    transform: scale(0.94);
+
+}
+
+
+/* ACTIVE SOUND */
+
+.origine-sound-toggle.sound-playing {
+
+    border-color:
+        rgba(215, 189, 141, 0.75);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(215, 189, 141, 0.08),
+        0 10px 35px
+        rgba(0, 0, 0, 0.4);
+}
+
+
+/* SMALL PULSE WHEN MUSIC IS PLAYING */
+
+.origine-sound-toggle.sound-playing
+.sound-icon {
+
+    animation:
+        origineSoundPulse 2.5s
+        ease-in-out infinite;
+}
+
+
+@keyframes origineSoundPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .origine-sound-toggle {
+
+        right: 18px;
+
+        bottom: 18px;
+
+        width: 43px;
+
+        height: 43px;
+    }
+
+
+    .origine-sound-toggle
+    .sound-icon {
+
+        font-size: 15px;
+    }
+
 }
